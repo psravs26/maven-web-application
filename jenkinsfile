@@ -1,5 +1,8 @@
 node{
     def mavenHome=tool name: "maven 3.8.5"
+    echo "The node name is: ${env.NODE_NAME}"
+    echo "The job name is: ${env.JOB_NAME}"
+    echo "the Build number is ${env.BUILD_NUMBER}"
     //checkout
     stage('checkout'){
         checkout([$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: '1ddb793b-e2ff-44e0-82bc-e3c83e2b812f', url: 'https://github.com/psravs26/maven-web-application.git']]])
